@@ -45,17 +45,21 @@ $font-grey: #434A54;
       background-color: #2f3e51;
       height: calc(100vh - 100px);
       padding: 20px;
-      .group {
-        height: 45px;
-        margin-bottom: 40px;;
-        &__name {
-          height: 23px;
-          font-size: 15px;
-          margin-bottom: 5px;
-        }
-        &__last-message {
-          height: 17px;
-          font-size: 11px;
+      a {
+        color: white;
+        text-decoration: none;
+        .group {
+          height: 45px;
+          margin-bottom: 40px;
+          &__name {
+            height: 23px;
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+          &__message {
+            height: 17px;
+            font-size: 11px;
+          }
         }
       }
     }

@@ -108,10 +108,10 @@ $font-grey: #434A54;
       padding: 35px 40px;
       .message {
         padding-bottom: 46px;
-        &__upper-info {
+        .upper-message {
           margin-bottom: 12px;
           display: flex;
-          &__talker {
+          &__user-name {
             color: #333333;
             font-size: 16px;
             font-weight: bold;
@@ -122,54 +122,47 @@ $font-grey: #434A54;
             margin-left: 10px;
           }
         }
-        &__text {
+        .lower-message {
           font-size: 14px;
           color: $black;
         }
       }
     }
     .form {
-      background-color: #d2d2d2;
+      background-color: #DDDDDD;
+      box-sizing: border-box;
       height: 90px;
       width: calc(100vw - 300px);
       padding: 20px 40px;
-      .new_message {
-        display: flex;
-        .input-box {
-          position: relative;
-          width: 100%;
-          &__text {
-            color: $black;
-            height: 50px;
-            width: 100%;
-            padding: 0 40px 0 10px;
-            border-style: none;
-          }
-          &__image {
-            font-size: 1.3rem;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            height: 30px;
-            width: 22.3px;
-            i {
-              font-size: 23px;
-            }
-            input {
-              display: none;
-            }
-          }
+      &__message {
+        border: none;
+        float: left;
+        height: 50px;
+        width: calc(100% - 150px);
+        padding-left: 10px;
+      }
+      &__mask {
+        background-color: $white;
+        float: left;
+        height: 50px;
+        padding-right: 10px;
+        &__image {
+          font-size: 20px;
+          line-height: 50px;
         }
-        .submit-btn {
-          background-color: $light_blue;
-          color: white;
-          width: 100px;
-          height: 50px;
-          margin-left: 15px;
-          padding: 0 30px;
-          cursor: pointer;
+        .hidden {
+          display: none;
         }
+      }
+      &__submit {
+        background-color: $light_blue;
+        border: none;
+        color: $white;
+        float: right;
+        font-size: 16px;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0 30px;
       }
     }
   }

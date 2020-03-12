@@ -2,41 +2,21 @@
   .group-info
     .group-info__left-box
       .group-info__left-box__current-group
-        wa
-      %ul.group-info__left-box__member__list
+        = @group.name
+      .group-info__left-box__member__list
         Member :
-        %li.group-info__left-box__member__list__member
-          masa
-        %li.group-info__left-box__member__list__member
-          teru
-    = link_to "#", class: "edit-btn" do
+        .group-info__left-box__member__list__member
+          - @group.users.each do |user|
+            = user.name
+    = link_to edit_group_path(@group.id) do
       Edit
   .message-list
-    .message
-      .message__upper-info
-        .message__upper-info__talker
-          wa
-        .message__upper-info__date
-          2020/03/09(Mon) 20:03:29
-      %p.message__text
-        aa
-    .message
-      .message__upper-info
-        .message__upper-info__talker
-          wa
-        .message__upper-info__date
-          2020/03/09(Mon) 20:03:29
-      %p.message__text
-        aa
+    = render partial: 'message', collection: @messages
   .form
-    %form.new_message#new_message{:method => "post",  :enctype => "multipart/form-data"}
-      %input{:name => "utf8", :type => "hidden", :value => ""}
-      %input{:name => "authenticity_token" , :type => "hidden"}
-      .input-box
-        %input.input-box__text#message_content{:placeholder => "type a message", :type => "text"}
-        
-        %label{class: "input-box__image", :for => "message_image"}
-          = icon('far', 'image')
-          %input.input-box__image__file#message_image{type: "file", :name => "message[image]"}
-      %input.submit-btn{:type => "submit", :value => "Send"}
-      
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'

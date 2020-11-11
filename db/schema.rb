@@ -58,3 +58,4 @@ ActiveRecord::Schema.define(version: 20200311064809) do
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
 end
+ø
